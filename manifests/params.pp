@@ -1,0 +1,19 @@
+class ffrl::params {
+  $public_nets       = []
+  $public_nets_self  = []
+  $bba_dus           = undef
+  $bbb_dus           = undef
+  $bba_fra           = undef
+  $bbb_fra           = undef
+  $bba_ber           = undef
+  $bbb_ber           = undef
+  $public_nets6      = []
+  $public_nets_self6 = []
+  $bba_dus6          = undef
+  $bbb_dus6          = undef
+  $bba_fra6          = undef
+  $bbb_fra6          = undef
+  $bba_ber6          = undef
+  $bbb_ber6          = undef
+  $preferred         = undef
+}

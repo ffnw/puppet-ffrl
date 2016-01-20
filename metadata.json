@@ -1,0 +1,18 @@
+{
+  "name": "ffnw-ffrl",
+  "version": "0.1.0",
+  "author": "Simon Kurka",
+  "summary": "Creates uplink connections for Freifunk community nodes via Freifunk Rheinland e. V.",
+  "license": "GPLv2",
+  "source": "https://github.com/ffnw/puppet-ffrl.git",
+  "project_page": "https://github.com/ffnw/puppet-ffrl",
+  "issues_url": "https://github.com/ffnw/puppet-ffrl/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"},
+    {"name":"ffnw-gre","version_requirement":">= 0.1.0"},
+    {"name":"ffnw-bird","version_requirement":">= 0.1.0"},
+    {"name":"inkblot-ipcalc","version_requirement":">= 1.2.2"}
+  ],
+  "data_provider": null
+}
+
