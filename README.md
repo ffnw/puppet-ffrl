@@ -21,7 +21,7 @@ In detail it opens GRE-tunnels to every FFRL-Router which is configured and crea
 
 ### What ffrl affects
 
-This module uses ffnw-gre to create tunnel-connections to FFRL-Backbone and applies configuration files to bird and bird6 using the ffnw-bird module.
+This module creates tunnel-connections to FFRL-Backbone and applies configuration files to bird and bird6 using the ffnw-bird module.
 
 ### Beginning with ffrl
 
