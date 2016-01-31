@@ -9,7 +9,7 @@
   "issues_url": "https://github.com/ffnw/puppet-ffrl/issues",
   "dependencies": [
     {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"},
-    {"name":"ffnw-gre","version_requirement":">= 0.1.0"},
+    {"name":"ffnw-network","version_requirement":">= 0.1.0"},
     {"name":"ffnw-bird","version_requirement":">= 0.1.0"},
     {"name":"inkblot-ipcalc","version_requirement":">= 1.2.2"}
   ],

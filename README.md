@@ -80,7 +80,7 @@ Please have a look at [Beginning with ffrl](#beginning-with-uplink). Every param
 * Debian 8
 
 ### Dependencies
-* ffnw-gre
+* ffnw-network
 * ffnw-bird
 
 ## Development
