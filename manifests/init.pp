@@ -25,6 +25,8 @@ class ffrl (
     validate_ip_address($value);
   }
 
+  require router
+
   contain ffrl::tunnel
   contain ffrl::routing
 
