@@ -26,7 +26,7 @@ This module creates tunnel-connections to FFRL-Backbone and applies configuratio
 ### Beginning with ffrl
 
 ```puppet
-class {'::ffrl':
+class { 'ffrl':
   local_as          => YOUR_AS_NUMBER,
   public_nets       => [ 'YOUR PUBLIC IPv4-NETWORKS ROUTEABLE IN YOUR AS' ],
   public_nets_self  => [ 'YOUR PUBLIC IPv4-NETWORKS ROUTED TO THIS DEVICE' ],
