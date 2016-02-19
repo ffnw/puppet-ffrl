@@ -64,4 +64,6 @@ class ffrl::routing inherits ffrl {
     preferred     => ($preferred == 'ber'),
   )
 
+  create_resources('ffrl::routing::do', hiera('ffrl::routing::do', {}))
+
 }

@@ -52,5 +52,7 @@ class ffrl::tunnel inherits ffrl {
     nat_ip => $nat_ip,
   )
 
+  create_resources('ffrl::tunnel::do', hiera('ffrl::tunnel::do', {}))
+
 }
 
