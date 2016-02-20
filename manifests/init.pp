@@ -1,5 +1,6 @@
 class ffrl (
   Integer       $local_as,
+  String        $nat_ip,
   Array[String] $public_nets       = $ffrl::params::public_nets,
   Array[String] $public_nets_self  = $ffrl::params::public_nets_self,
   String        $bba_dus           = $ffrl::params::bba_dus,
@@ -18,7 +19,8 @@ class ffrl (
   String        $bbb_ber6          = $ffrl::params::bbb_ber6,
   String        $preferred         = $ffrl::params::preferred,
 ) inherits ffrl::params {
-  ($public_nets
+  ($nat_ip
+   + $public_nets
    + $public_nets_self
    + $public_nets6
    + $public_nets_self6).each | $value | {

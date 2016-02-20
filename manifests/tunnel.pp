@@ -2,10 +2,6 @@ class ffrl::tunnel inherits ffrl {
 
   require '::network'
 
-  $nat_ip = $public_nets_self[0]
-  
-  validate_ip_address($nat_ip)
-
   network::inet::loopback::post_up { 'ffrl NAT-IP':
     cmd => "/bin/ip addr add ${nat_ip} dev \$IFACE",
   }
