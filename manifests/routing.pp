@@ -1,30 +1,30 @@
 class ffrl::routing inherits ffrl {
 
-  require '::bird'
+  require bird
 
   file {
     '/etc/bird/bird.conf.d/ffrl/':
       ensure => directory,
-      mode   => "0755",
+      mode   => '0755',
       owner  => root,
       group  => root;
     '/etc/bird/bird.conf.d/ffrl.conf':
       ensure  => file,
-      mode    => "0644",
-      content => epp("ffrl/bird.epp"),
+      mode    => '0644',
+      content => epp('ffrl/bird.epp'),
       notify  => File['/etc/bird/bird.conf'];
   }
 
   file {
     '/etc/bird/bird6.conf.d/ffrl/':
       ensure => directory,
-      mode   => "0755",
+      mode   => '0755',
       owner  => root,
       group  => root;
     '/etc/bird/bird6.conf.d/ffrl.conf':
       ensure  => file,
-      mode    => "0644",
-      content => epp("ffrl/bird6.epp"),
+      mode    => '0644',
+      content => epp('ffrl/bird6.epp'),
       notify  => File['/etc/bird/bird6.conf'];
   }
 
