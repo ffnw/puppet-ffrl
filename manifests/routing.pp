@@ -28,41 +28,41 @@ class ffrl::routing inherits ffrl {
       notify  => File['/etc/bird/bird6.conf'];
   }
 
-  ffrl::routing::do('dus-a':
+  ffrl::routing::do { 'dus-a':
     transfer_net  => $bba_dus,
     transfer_net6 => $bba_dus6,
     preferred     => ($preferred == 'dus'),
-  )
+  }
 
-  ffrl::routing::do('dus-b':
+  ffrl::routing::do { 'dus-b':
     transfer_net  => $bbb_dus,
     transfer_net6 => $bbb_dus6,
     preferred     => ($preferred == 'dus'),
-  )
+  }
 
-  ffrl::routing::do('fra-a':
+  ffrl::routing::do { 'fra-a':
     transfer_net  => $bba_fra,
     transfer_net6 => $bba_fra6,
     preferred     => ($preferred == 'fra'),
-  )
+  }
 
-  ffrl::routing::do('fra-b':
+  ffrl::routing::do { 'fra-b':
     transfer_net  => $bbb_fra,
     transfer_net6 => $bbb_fra6,
     preferred     => ($preferred == 'fra'),
-  )
+  }
 
-  ffrl::routing::do('ber-a':
+  ffrl::routing::do { 'ber-a':
     transfer_net  => $bba_ber,
     transfer_net6 => $bba_ber6,
     preferred     => ($preferred == 'ber'),
-  )
+  }
 
-  ffrl::routing::do('ber-b':
+  ffrl::routing::do { 'ber-b':
     transfer_net  => $bbb_ber,
     transfer_net6 => $bbb_ber6,
     preferred     => ($preferred == 'ber'),
-  )
+  }
 
   create_resources('ffrl::routing::do', hiera('ffrl::routing::do', {}))
 
