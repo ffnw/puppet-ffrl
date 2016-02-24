@@ -24,7 +24,7 @@ class ffrl (
    + $public_nets_self
    + $public_nets6
    + $public_nets_self6).each | $value | {
-    validate_ip_address($value);
+    validate_ip_address($value)
   }
 
   require router
