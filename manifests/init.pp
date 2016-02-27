@@ -29,8 +29,8 @@ class ffrl (
 
   require router
 
-  class { '::bird::tunnel': }
-  class { '::bird::routing': }
+  class { 'bird::tunnel': }
+  class { 'bird::routing': }
 
   contain ffrl::tunnel
   contain ffrl::routing
