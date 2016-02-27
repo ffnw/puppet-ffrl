@@ -3,17 +3,17 @@
 
 # Do not import routes for our local networks
 protocol static ffrl_uplink_hostroute {
-  route <%= $nat_ip %>/32 reject;
-<%- ($public_nets_self + $public_nets).each | $value | { %>
+  route <%= $ffrl::nat_ip %>/32 reject;
+<%- ($ffrl::public_nets_self + $ffrl::public_nets).each | $value | { %>
   route <%= $value %> reject;
 <%- } %>
 }
 
 template bgp ffrl {
-  local as <%= $local_as %>;
+  local as <%= $ffrl::local_as %>;
   import where net ~ [ 0.0.0.0/0 ];
-  export where net ~ [ <%= $nat_ip %>/32,
-    <%= join($public_nets_self + $public_nets, ',\n    ') %> ];
+  export where net ~ [ <%= $ffrl::nat_ip %>/32,
+    <%= join($ffrl::public_nets_self + $ffrl::public_nets, ',\n    ') %> ];
 }
 
 include "ffrl/*.conf";
