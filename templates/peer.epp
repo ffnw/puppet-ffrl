@@ -1,7 +1,7 @@
 protocol bgp "ffrl-bb-<%= $title %>" from ffrl {
   source address <%= $source %>;
   neighbor <%= $neighbor %> as 201701;
-<% if( $preferred ) { -%>
+<%- if( $preferred ) { %>
   default bgp_local_pref 200;
-<% } -%>
+<%- } %>
 }

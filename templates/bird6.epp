@@ -3,9 +3,9 @@
 
 # Do not import routes for our local networks
 protocol static ffrl_uplink_hostroute {
-  <% ($public_nets_self6 + $public_nets6).each | $value | { -%>
+  <%- ($public_nets_self6 + $public_nets6).each | $value | { %>
   route <%= $value %> reject;
-  <% } -%>
+  <%- } %>
 }
 
 template bgp ffrl {
