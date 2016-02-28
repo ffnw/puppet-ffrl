@@ -1,8 +1,8 @@
 define ffrl::tunnel::do (
-  String $remote_public_ip,
-  String $transfer_net,
-  String $transfer_net6,
-  String $nat_ip,
+  String           $remote_public_ip,
+  Optional[String] $transfer_net,
+  Optional[String] $transfer_net6,
+  String           $nat_ip,
 ) {
 
   if is_ip_address($transfer_net) {
