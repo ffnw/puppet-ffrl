@@ -27,6 +27,9 @@ class ffrl (
     validate_ip_address($value)
   }
 
+  $all_public_nets = $public_nets + $public_nets_self
+  $all_public_nets6 = $public_nets6 + $public_nets_self6
+
   require router
 
   class { 'ffrl::tunnel': }
