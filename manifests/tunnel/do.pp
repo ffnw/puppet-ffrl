@@ -1,7 +1,7 @@
 define ffrl::tunnel::do (
   String           $remote_public_ip,
-  Optional[String] $transfer_net,
-  Optional[String] $transfer_net6,
+  Optional[String] $transfer_net = undef,
+  Optional[String] $transfer_net6 = undef,
   String           $nat_ip,
 ) {
 
