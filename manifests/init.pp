@@ -30,7 +30,7 @@ class ffrl (
   $all_public_nets = $public_nets + $public_nets_self
   $all_public_nets6 = $public_nets6 + $public_nets_self6
 
-  require router
+  include router
 
   class { 'ffrl::tunnel': }
   class { 'ffrl::routing': }

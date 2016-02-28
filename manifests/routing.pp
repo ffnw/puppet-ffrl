@@ -1,6 +1,6 @@
 class ffrl::routing inherits ffrl {
 
-  require bird
+  include bird
 
   file {
     '/etc/bird/bird.conf.d/ffrl/':
