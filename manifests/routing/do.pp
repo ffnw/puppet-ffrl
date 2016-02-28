@@ -1,7 +1,7 @@
 define ffrl::routing::do (
-  String  $transfer_net  = undef,
-  String  $transfer_net6 = undef,
-  Boolean $preferred     = false,
+  Optional[String] $transfer_net  = undef,
+  Optional[String] $transfer_net6 = undef,
+  Boolean          $preferred     = false,
 ) {
 
   if( is_ip_address($transfer_net) ) {
