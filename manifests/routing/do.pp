@@ -5,8 +5,6 @@ define ffrl::routing::do (
 ) {
 
   include ffrl::routing
-  include ffrl
-  include ffrl::params
 
   if( is_ip_address($transfer_net) ) {
 

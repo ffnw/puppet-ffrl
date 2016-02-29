@@ -6,8 +6,6 @@ define ffrl::tunnel::do (
 ) {
 
   include ffrl::tunnel
-  include ffrl
-  include ffrl::params
 
   if is_ip_address($transfer_net) {
 
