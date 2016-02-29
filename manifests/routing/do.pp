@@ -17,7 +17,12 @@ define ffrl::routing::do (
       "/etc/bird/bird.conf.d/ffrl/${title}.conf":
         ensure  => file,
         mode    => '0644',
-        content => epp('ffrl/peer.epp', { title => $title, source => $source, neighbor => $neighbor, preferred => $preferred }),
+        content => epp('ffrl/peer.epp', {
+          title => $title,
+          source => $source,
+          neighbor => $neighbor,
+          preferred => $preferred,
+        }),
         notify  => File['/etc/bird/bird.conf.d/ffrl.conf'];
     }
 
@@ -32,7 +37,12 @@ define ffrl::routing::do (
       "/etc/bird/bird6.conf.d/ffrl/${title}.conf":
         ensure  => file,
         mode    => '0644',
-        content => epp('ffrl/peer.epp', { title => $title, source => $source, neighbor => $neighbor, preferred => $preferred }),
+        content => epp('ffrl/peer.epp', {
+          title => $title,
+          source => $source,
+          neighbor => $neighbor,
+          preferred => $preferred,
+        }),
         notify  => File['/etc/bird/bird6.conf.d/ffrl.conf'];
     }
 
