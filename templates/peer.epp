@@ -3,7 +3,7 @@
       $neighbor,
       $preferred,
 | -%>
-protocol bgp "ffrl-bb-<%= $title %>" from ffrl {
+protocol bgp 'ffrl-bb-<%= $title %>' from ffrl {
   source address <%= $source %>;
   neighbor <%= $neighbor %> as 201701;
 <% if( $preferred ) { -%>
