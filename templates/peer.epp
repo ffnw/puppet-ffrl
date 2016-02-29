@@ -1,3 +1,8 @@
+<%- | $title,
+      $source,
+      $neighbor,
+      $preferred,
+| -%>
 protocol bgp "ffrl-bb-<%= $title %>" from ffrl {
   source address <%= $source %>;
   neighbor <%= $neighbor %> as 201701;

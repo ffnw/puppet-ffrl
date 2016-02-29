@@ -11,7 +11,7 @@ class ffrl::routing inherits ffrl {
     '/etc/bird/bird.conf.d/ffrl.conf':
       ensure  => file,
       mode    => '0644',
-      content => epp('ffrl/bird.epp'),
+      content => epp('ffrl/bird.epp', { nat_ip => $nat_ip, all_public_nets => $all_public_nets, local_as => $local_as }),
       notify  => File['/etc/bird/bird.conf'];
   }
 
@@ -24,7 +24,7 @@ class ffrl::routing inherits ffrl {
     '/etc/bird/bird6.conf.d/ffrl.conf':
       ensure  => file,
       mode    => '0644',
-      content => epp('ffrl/bird6.epp'),
+      content => epp('ffrl/bird6.epp', { all_public_nets6 => $all_public_nets6, local_as => $local_as }),
       notify  => File['/etc/bird/bird6.conf'];
   }
 

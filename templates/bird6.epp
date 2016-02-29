@@ -1,17 +1,20 @@
+<%- | $all_public_nets6,
+      $local_as,
+| -%>
 # DO NOT EDIT!
 # This file is puppet generated.
 
 # Do not import routes for our local networks
 protocol static ffrl_uplink_hostroute {
-  <% $ffrl::all_public_nets6.each | $value | { -%>
+  <% $all_public_nets6.each | $value | { -%>
   route <%= $value %> reject;
   <% } -%>
 }
 
 template bgp ffrl {
-  local as <%= $ffrl::local_as %>;
+  local as <%= $local_as %>;
   import where net ~ [ ::/0 ];
-  export where net ~ [ <%= join($ffrl::all_public_nets6, ',\n    ') %> ];
+  export where net ~ [ <%= join($all_public_nets6, ',\n    ') %> ];
 }
 
 include "ffrl/*.conf";

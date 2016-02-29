@@ -1,19 +1,23 @@
+<%- | $nat_ip,
+      $all_public_nets,
+      $local_as,
+| -%>
 # DO NOT EDIT!
 # This file is puppet generated.
 
 # Do not import routes for our local networks
 protocol static ffrl_uplink_hostroute {
-  route <%= $ffrl::nat_ip %>/32 reject;
-<% $ffrl::all_public_nets.each | $value | { -%>
+  route <%= $nat_ip %>/32 reject;
+<% $all_public_nets.each | $value | { -%>
   route <%= $value %> reject;
 <% } -%>
 }
 
 template bgp ffrl {
-  local as <%= $ffrl::local_as %>;
+  local as <%= $local_as %>;
   import where net ~ [ 0.0.0.0/0 ];
-  export where net ~ [ <%= $ffrl::nat_ip %>/32,
-    <%= join($ffrl::all_public_nets, ',\n    ') %> ];
+  export where net ~ [ <%= $nat_ip %>/32,
+    <%= join($all_public_nets, ',\n    ') %> ];
 }
 
 include "ffrl/*.conf";
