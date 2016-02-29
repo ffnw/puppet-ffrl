@@ -28,8 +28,8 @@ define ffrl::routing::do (
 
   if( is_ip_address($transfer_net6) ) {
 
-    $source   = ip_address(ip_network($transfer_net6, 2))
-    $neighbor = ip_address(ip_network($transfer_net6, 1))
+    $source6   = ip_address(ip_network($transfer_net6, 2))
+    $neighbor6 = ip_address(ip_network($transfer_net6, 1))
 
     file {
       "/etc/bird/bird6.conf.d/ffrl/${title}.conf":
@@ -37,8 +37,8 @@ define ffrl::routing::do (
         mode    => '0644',
         content => epp('ffrl/peer.epp', {
           title     => $title,
-          source    => $source,
-          neighbor  => $neighbor,
+          source    => $source6,
+          neighbor  => $neighbor6,
           preferred => $preferred,
         }),
         notify  => File['/etc/bird/bird6.conf.d/ffrl.conf'];
