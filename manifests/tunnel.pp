@@ -2,6 +2,11 @@ class ffrl::tunnel inherits ffrl {
 
   include network
 
+  file_line { 'ffrl-ip_gre':
+    path => '/etc/modules',
+    line => 'ip_gre',
+  }
+
   network::inet::loopback::post_up { 'ffrl NAT-IP':
     cmd => "/bin/ip addr add ${nat_ip} dev \$IFACE",
   }
