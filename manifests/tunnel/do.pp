@@ -15,6 +15,7 @@ define ffrl::tunnel::do (
     $_transfer_net = ip_network($transfer_net)
     $_nat_ip = ip_address($nat_ip)
 
+    $kernel_table = $ffrl::kernel_table
     if ($kernel_table) {
       $ip4_rule_up   = [ "/bin/ip -4 rule add pref 31000 iif \$IFACE table ${kernel_table}",
                          "/bin/ip -4 rule add pref 31001 iif \$IFACE unreachable", ]
