@@ -14,7 +14,7 @@ protocol static ffrl_uplink_hostroute {
 template bgp ffrl {
   local as <%= $local_as %>;
   import where net ~ [ ::/0 ];
-  export where net ~ [ <%= join($all_public_nets6, ',\n    ') %> ];
+  export where net ~ [ <%= join($all_public_nets6, ",\n    ") %> ];
 }
 
 include "ffrl/*.conf";
