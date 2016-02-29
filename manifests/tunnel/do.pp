@@ -14,14 +14,14 @@ define ffrl::tunnel::do (
     $_nat_ip = ip_address($nat_ip)
 
     if ($kernel_table) {
-      $ip4_rule_up   = [ "/bin/ip -4 rule add pref 31000 iif $IFACE table ${kernel_table}",
-                         "/bin/ip -4 rule add pref 31001 iif $IFACE unreachable", ]
-      $ip6_rule_up   = [ "/bin/ip -6 rule add pref 31000 iif $IFACE table ${kernel_table}",
-                         "/bin/ip -6 rule add pref 31001 iif $IFACE unreachable", ]
-      $ip4_rule_down = [ "/bin/ip -4 rule del pref 31000 iif $IFACE table ${kernel_table}",
-                         "/bin/ip -4 rule del pref 31001 iif $IFACE unreachable", ]
-      $ip6_rule_down = [ "/bin/ip -6 rule del pref 31000 iif $IFACE table ${kernel_table}",
-                         "/bin/ip -6 rule del pref 31001 iif $IFACE unreachable", ]
+      $ip4_rule_up   = [ "/bin/ip -4 rule add pref 31000 iif \$IFACE table ${kernel_table}",
+                         "/bin/ip -4 rule add pref 31001 iif \$IFACE unreachable", ]
+      $ip6_rule_up   = [ "/bin/ip -6 rule add pref 31000 iif \$IFACE table ${kernel_table}",
+                         "/bin/ip -6 rule add pref 31001 iif \$IFACE unreachable", ]
+      $ip4_rule_down = [ "/bin/ip -4 rule del pref 31000 iif \$IFACE table ${kernel_table}",
+                         "/bin/ip -4 rule del pref 31001 iif \$IFACE unreachable", ]
+      $ip6_rule_down = [ "/bin/ip -6 rule del pref 31000 iif \$IFACE table ${kernel_table}",
+                         "/bin/ip -6 rule del pref 31001 iif \$IFACE unreachable", ]
     } else {
       $ip4_rule_up   = []
       $ip6_rule_up   = []
