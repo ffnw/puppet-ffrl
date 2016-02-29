@@ -4,6 +4,10 @@ define ffrl::routing::do (
   Boolean          $preferred     = false,
 ) {
 
+  include ffrl::routing
+  include ffrl
+  include ffrl::params
+
   if( is_ip_address($transfer_net) ) {
 
     $source   = ip_address(ip_network($transfer_net, 1))

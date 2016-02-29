@@ -5,6 +5,10 @@ define ffrl::tunnel::do (
   String           $nat_ip,
 ) {
 
+  include ffrl::tunnel
+  include ffrl
+  include ffrl::params
+
   if is_ip_address($transfer_net) {
 
     validate_ip_address($remote_public_ip)
