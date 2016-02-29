@@ -16,4 +16,5 @@ class ffrl::params {
   $bba_ber6          = undef
   $bbb_ber6          = undef
   $preferred         = undef
+  $kernel_table      = undef
 }

@@ -17,7 +17,8 @@ class ffrl (
   Optional[String] $bbb_fra6          = $ffrl::params::bbb_fra6,
   Optional[String] $bba_ber6          = $ffrl::params::bba_ber6,
   Optional[String] $bbb_ber6          = $ffrl::params::bbb_ber6,
-  String           $preferred         = $ffrl::params::preferred,
+  Optional[String] $preferred         = $ffrl::params::preferred,
+  Optional[String] $kernel_table      = $ffrl::params::kernel_table,
 ) inherits ffrl::params {
   ([ $nat_ip ]
    + $public_nets
