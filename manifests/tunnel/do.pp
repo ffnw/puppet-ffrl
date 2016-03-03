@@ -44,7 +44,7 @@ define ffrl::tunnel::do (
       endpoint  => ip_address($remote_public_ip),
       dstaddr   => ip_address(ip_network($transfer_net, 0)),
       ttl       => 255,
-      mtu       => 1476,
+      mtu       => 1426,
       pre_up    => $pre_up,
       post_up   => $post_up,
       post_down => $post_down,
