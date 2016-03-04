@@ -38,10 +38,6 @@ define ffrl::tunnel::do (
     $post_down = [ "/sbin/iptables -t nat -D POSTROUTING ! -s ${_transfer_net} -o \$IFACE -j SNAT --to-source ${_nat_ip}",
                    "/sbin/iptables -D FORWARD -o \$IFACE -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu", ] + $ip4_rule_down
 
-    network::interface { "gre-ffrl-${title}":
-      method => 'allow-hotplug',
-    }
-
     network::inet::tunnel { "gre-ffrl-${title}":
       address   => ip_address(ip_network($transfer_net, 1)),
       mode      => 'gre',
