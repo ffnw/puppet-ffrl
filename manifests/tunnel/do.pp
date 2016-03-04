@@ -40,7 +40,7 @@ define ffrl::tunnel::do (
 
     network::inet::tunnel { "gre-ffrl-${title}":
       address   => ip_address(ip_network($transfer_net, 1)),
-      netmask   => ip_prefixlength($transfer_net),
+      netmask   => "${ip_prefixlength($transfer_net)}",
       mode      => 'gre',
       endpoint  => ip_address($remote_public_ip),
       dstaddr   => ip_address(ip_network($transfer_net, 0)),
