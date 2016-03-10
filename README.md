@@ -46,7 +46,6 @@ class { 'ffrl':
   bba_ber6          => 'YOUR IPv6 TRANSFER NETWORK TO ROUTER-A IN BER',
   bbb_ber6          => 'YOUR IPv6 TRANSFER NETWORK TO ROUTER-B IN BER',
   preferred         => 'YOUR PREFERRED ROUTER LOCATION',
-  kernel_table      => '42',
 }
 ```
 
@@ -76,16 +75,11 @@ Please have a look at [Beginning with ffrl](#beginning-with-uplink). Every param
   * bba\_ber6 (optional, default undef)
   * bbb\_ber6 (optional, default undef)
   * preferred (optional, default undef, possible values: dus, fra, ber)
-  * kernel_table (optional)
 
 ## Limitations
 
 ### OS compatibility
 * Debian 8
-
-### Dependencies
-* ffnw-network
-* ffnw-bird
 
 ## Development
 
