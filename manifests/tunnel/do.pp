@@ -15,11 +15,11 @@ define ffrl::tunnel::do (
     $_transfer_net = ip_network($transfer_net)
     $_nat_ip = ip_address($nat_ip)
 
-    $pre_up    = [ "/sbin/iptables -t nat -A POSTROUTING ! -s ${_transfer_net} -o \$IFACE -j SNAT --to-source ${_nat_ip}",
-                   "/sbin/iptables -A FORWARD -o \$IFACE -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu", ]
+    $pre_up    = [ "/sbin/iptables -w -t nat -A POSTROUTING ! -s ${_transfer_net} -o \$IFACE -j SNAT --to-source ${_nat_ip}",
+                   "/sbin/iptables -w -A FORWARD -o \$IFACE -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu", ]
     $post_up   = [ "/sbin/sysctl -w net.ipv4.conf.\$IFACE.rp_filter=0" ]
-    $post_down = [ "/sbin/iptables -t nat -D POSTROUTING ! -s ${_transfer_net} -o \$IFACE -j SNAT --to-source ${_nat_ip}",
-                   "/sbin/iptables -D FORWARD -o \$IFACE -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu", ]
+    $post_down = [ "/sbin/iptables -w -t nat -D POSTROUTING ! -s ${_transfer_net} -o \$IFACE -j SNAT --to-source ${_nat_ip}",
+                   "/sbin/iptables -w -D FORWARD -o \$IFACE -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu", ]
 
     network::inet::tunnel { "gre-ffrl-${title}":
       address   => ip_address(ip_network($transfer_net, 1)),
