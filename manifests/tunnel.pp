@@ -8,8 +8,9 @@ class ffrl::tunnel inherits ffrl {
   }
 
   network::inet::loopback::post_up { 'ffrl NAT-IP':
-    cmd => "/bin/ip addr add ${nat_ip} dev \$IFACE",
+    cmd => "/bin/ip -4 addr add ${nat_ip} dev \$IFACE",
   }
+  network::inet::loopback::post_up { "/bin/ip -4 rule add pref 10 from ${nat_ip} lookup 42": }
 
   ffrl::tunnel::do { 'dus-a':
     remote_public_ip => '185.66.193.0',
